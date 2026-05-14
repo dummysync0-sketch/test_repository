@@ -42,14 +42,12 @@ def generate_price_report():
             # Calculate percent change: ((V2 - V1) / V1) * 100
             pct_change = ((curr - prev) / prev) * 100
 
-            # Logic for the 10% threshold note
-            note = ""
-            if abs(pct_change) > 10:
-                direction = "increased" if pct_change > 0 else "decreased"
-                note = f"⚠️ Significant change: {direction} by {abs(pct_change):.1f}%"
+
+           
+
 
             report_lines.append(
-                f"| {item_name} | {prev:.2f} | {curr:.2f} | {pct_change:+.1f}% | {note} |"
+                f"| {item_name} | {prev:.2f} | {curr:.2f} | {pct_change:+.1f}% |"
             )
         else:
             print(f"Warning: {item_name} not found in prices.csv columns.")
